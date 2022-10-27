@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 
 import { interval, Subscription, Observable } from 'rxjs';
 import { map, filter } from 'rxjs/operators';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-home',
@@ -10,27 +11,29 @@ import { map, filter } from 'rxjs/operators';
 })
 export class HomeComponent implements OnInit {
 
-  private firstObsSubscription: Subscription;
+  // private firstObsSubscription: Subscription;
 
   message = 44;
-  message1: Number;
+  message1 = 22;
+  theNumber: number;
 
-  constructor() {
+  constructor(private userService: UserService) {
   }
 
-
   ngOnInit(): void {
-    
-    
-    const theObservable = Observable.create((observer) =>{
-      observer.next(this.message1);
-    });
+       
+    // const theObservable = Observable.create((observer) =>{
+    //   observer.next(this.message1);
+    // });
 
+    // this.firstObsSubscription = theObservable.subscribe((data) =>{
+    //   this.message = data;
+    // });
+  }
 
-    this.firstObsSubscription = theObservable.subscribe((data) =>{
-      this.message = data;
-    });
-    
+  functionToSendData(event){
+    this.userService.actiavtedEmitter.next(this.theNumber);
+    console.log(event);
   }
 
   //ngOnInit() {
@@ -50,7 +53,6 @@ export class HomeComponent implements OnInit {
   //       count++;
   //     }, 1000);
   //   });
-
 
   //   this.firstObsSubscription = customIntervalObservable.pipe(filter(data => {
   //     return data > 0;

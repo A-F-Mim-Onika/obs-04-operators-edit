@@ -19,15 +19,15 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
-    this.acvivatedSubscription = this.userService.actiavtedEmitter.subscribe(
-      (didActivate) => {
-        this.userActivated = didActivate;
-      }
-    );
+    // this.acvivatedSubscription = this.userService.actiavtedEmitter.subscribe(
+    //   (didActivate) => {
+    //     this.userActivated = didActivate;
+    //   }
+    // );
   }
 
   ngOnDestroy(){
-    this.acvivatedSubscription.unsubscribe();
+    // this.acvivatedSubscription.unsubscribe();
 
   }
 

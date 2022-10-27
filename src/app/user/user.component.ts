@@ -10,16 +10,16 @@ import { UserService } from '../user.service';
 export class UserComponent implements OnInit {
   id: number;
 
-  constructor() {
+  constructor(private userService2: UserService ) {
   }
 
-  ngOnInit() {
-   
-    
+  ngOnInit() { 
+    this.userService2.actiavtedEmitter.subscribe((fromObservable) =>{
+      this.id = fromObservable;  
+    });
   }
 
   onActivate(){
   }
-
 
 }

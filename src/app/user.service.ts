@@ -6,7 +6,7 @@ import { Subject } from 'rxjs';
 })
 export class UserService {
   //actiavtedEmitter =  new EventEmitter<boolean>();
-  actiavtedEmitter =  new Subject<boolean>();
+  actiavtedEmitter =  new Subject<number>();
 
   constructor() { }
 }
